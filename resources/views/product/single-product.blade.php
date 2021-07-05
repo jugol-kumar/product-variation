@@ -67,11 +67,16 @@
                             </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card" id="noHaveSize">
                         <div class="card-body">
                             <select id="allSize" name="option"  class="form-control allsize">
                                 <option>~~ Check Available Size ~~</option>
                                 @foreach($product->colors[1]->sizes as $size)
+                                    <script>
+                                        if ({{ $size->size == null }}){
+                                            document.getElementById('noHaveSize').style.display = "none"
+                                        }
+                                    </script>
                                     <option value="{{ $size->id }}">{{ $size->size }}</option>
                                 @endforeach
                             </select>
@@ -157,11 +162,17 @@
                 data: id,
                 success: function (res){
                     if (res.sizes != null){
+                        // console.log(res);
                         // console.log(res.sizes);
                         $('#ColorName').css('background',res.color_code);
                         $('#allSize').empty();
                         $.each(res.sizes, function (size, key){
-                            $('#allSize').append('<option class="sizeOption" value='+key.id+'>'+ key.size + '</option>');
+                            console.log(key.size);
+                            if (key.size != null) {
+                                $('#allSize').append('<option class="sizeOption" value=' + key.id + '>' + key.size + '</option>');
+                            }else{
+                                $('#noHaveSize').addClass('d-none');
+                            }
                         });
                         $('.carousel-inner').empty();
                         let j=1;

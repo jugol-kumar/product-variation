@@ -200,11 +200,9 @@
 <script src="{{ asset('js/select.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function (){
-
         var index = 0;
         var addButton = $('.add_button');
         var cardAdd = $('.card-style');
-
         //Once add button is clicked
         $(addButton).click(function(){
             index++;
@@ -215,7 +213,7 @@
                 '<div class="row mt-3 mb-3">' +
                 '<div class="col-md-3">' +
                 '<div class="input-group">' +
-                '<input type="color" name="color['+index+'][]" id="colorId'+index+'" data-id="'+index+'" class="form-control-color optionInput"/>' +
+                '<input type="color" name="color['+index+'][]" id="colorId'+index+'" class="form-control-color optionInput"/>' +
                 '<a href="javascript:void(0);" class="remove_button btn btn-outline-secondary" title="Add field">' +
                 '<img src="{{ asset('img/remove-icon.png') }}"/></a>'+
                 '</div>'+
@@ -261,25 +259,23 @@
         //this is new code for card desing .
         $('body').on('click', '.add_child_button', function (e){
             $(this).parent('div').parent('div').parent('div').parent('div').append(`
-        <div>
-            <div class="input-group mt-2">
-                <input type="text" class="form-control" name="color[${index}][sku][]" value="KBC-${ parseInt(Math.random()*999999) }">
-                <input type="text" class="form-control col-md-3" name="color[${index}][size][]" placeholder="Size...">
-                <input type="text" class="form-control col-md-3 optionInput" name="color[${index}][price][]" placeholder="Price...">
-                <input type="text" class="form-control  col-md-3 optionInput" name="color[${index}][qty][]" placeholder="Quantity...">
-                <div class="input-group-append">
-                    <a href="javascript:void(0);" class="child_remove_button btn btn-outline-secondary" title="Add field"><img src="{{ asset('img/remove-icon.png') }}"/></a>
+                <div>
+                    <div class="input-group mt-2">
+                        <input type="text" class="form-control" name="color[${index}][sku][]" value="KBC-${ parseInt(Math.random()*999999) }">
+                        <input type="text" class="form-control col-md-3" name="color[${index}][size][]" placeholder="Size...">
+                        <input type="text" class="form-control col-md-3 optionInput" name="color[${index}][price][]" placeholder="Price...">
+                        <input type="text" class="form-control  col-md-3 optionInput" name="color[${index}][qty][]" placeholder="Quantity...">
+                        <div class="input-group-append">
+                            <a href="javascript:void(0);" class="child_remove_button btn btn-outline-secondary" title="Add field"><img src="{{ asset('img/remove-icon.png') }}"/></a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-       `);
+            `);
         });
 
 
         var upload = new FileUploadWithPreview("firstImage");
-
         // var upload = new FileUploadWithPreview(`myUniqueUploadId${index}`);
-
 
         $('body').on('click', '.child_remove_button', function (e){
             e.preventDefault();
