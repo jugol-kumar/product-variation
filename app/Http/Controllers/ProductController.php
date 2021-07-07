@@ -46,9 +46,14 @@ class ProductController extends Controller
             'title' => $request->title
         ]);
         foreach ($request->get('color') as $k => $color) {
+
+//            if(!isset($color[0])){
+//                dd($color);
+//            };
+
             $colorModel = Color::create([
                 'product_id' => $product_id->id,
-                'color_code' => $color[0]
+                'color_code' => !isset($color[0]) ? 'null' : $color[0],
             ]);
 
             $attribute = [];

@@ -164,7 +164,6 @@
                                             <div id="childSec" class="child_secton col-md-8" >
                                                 <div class="form-group">
                                                     <div class="input-group">
-{{--                                                        <input class="form-control col-md-3" value="KBC-{{ rand(000000, 999999) }}" disabled>--}}
                                                         <input type="text" class="form-control" name="color[0][sku][]" value="KBC-{{ rand(000000, 999999) }}">
                                                         <input type="text" class="form-control col-md-3" name="color[0][size][]" placeholder="Size...">
                                                         <input type="text" class="form-control col-md-3" name="color[0][price][]" placeholder="Price...">
@@ -285,8 +284,6 @@
     });
 
 
-</script>
-<script>
 </script>
 
 </body>
